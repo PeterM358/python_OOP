@@ -1,18 +1,15 @@
-from appliances.tv import TV
-from rooms.room import Room
+from project.appliances.tv import TV
+from project.rooms.room import Room
 
 
 class AloneYoung(Room):
     room_cost = 10
-    appliances_list = [TV()]
+    default_members = 1
+    appliance_types = [TV()]
 
     def __init__(self, family_name: str, salary: float):
-        super().__init__(family_name, salary)
-        AloneYoung.family_name = family_name
-        AloneYoung.budget = salary
-
-    def expenses(self):
-        return sum(el.cost for el in AloneYoung.appliances_list)
+        super().__init__(family_name, salary, self.default_members)
+        self.calculate_expenses(self.appliances)
 
 
 # young = AloneYoung('koki', 500)

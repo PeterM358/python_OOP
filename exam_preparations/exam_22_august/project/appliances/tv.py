@@ -1,10 +1,11 @@
-from appliances.appliance import Appliance
+from project.appliances.appliance import Appliance
 
 
 class TV(Appliance):
+    appliance_cost = 1.5
 
     def __init__(self):
-        super().__init__(cost=1.5)
+        super().__init__(self.appliance_cost)
 
     # just for check
     # def __repr__(self):
